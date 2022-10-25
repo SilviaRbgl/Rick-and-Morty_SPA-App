@@ -1,32 +1,39 @@
 import React, { useState, useEffect } from "react";
+import Cards from "./Cards";
 
 function Characters() {
-  const [characters, setcharacters] = useState([]);
+  const [characters, setCharacters] = useState([]);
+  const [error, setError] = useState(null);
+   
   const fetchCharacters = () => {
     const url = "https://rickandmortyapi.com/api/character";
     fetch(url)
       .then((response) => response.json())
       .then((result) => {
         console.log(result.results);
-        setcharacters(result.results);
+        setCharacters(result.results);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setError(error.message);
+        console.log(error);
+      });
   };
 
   useEffect(() => {
-    fetchCharacters()
-  }, [])
-  
+    fetchCharacters();
+  }, []);
+
   return (
     <div>
-      <h2>Rick & Morty App</h2>
       {characters ? (
         characters.map((character) => {
-        return <p>{character.name}</p>
+          return <Cards character={character} />;
         })
       ) : (
-          <p>No characters</p>
+        <p>Loading...</p>
       )}
+        { error && <p>{error}</p>} 
+     
     </div>
   );
 }

@@ -7,6 +7,7 @@ function home() {
     <div>
           <SearchBarApp />
           <Characters />
+
     </div>
   );
 }
