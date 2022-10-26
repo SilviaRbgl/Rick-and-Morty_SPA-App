@@ -18,6 +18,7 @@ function Characters() {
         console.log(error);
       });
   };
+  
 
   useEffect(() => {
     fetchCharacters();

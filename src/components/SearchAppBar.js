@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -6,8 +6,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-import { useState } from "react";
-import Characters from "../components/Characters";
 
 
 const Search = styled("div")(({ theme }) => ({
@@ -53,14 +51,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 
-function SearchAppBar({character}) {
+
+function SearchAppBar({ getInput }) {
+  
   const [input, setInput] = useState("");
 
-  const onChangeInput = (e) => {
-  console.log(e.target.value);
-    // setInput(e.target.value) === character.name;
-  setInput(e.target.value)
-}
+//   const onChangeInput = (e) => {
+//     // setInput(e.target.value) === character.name;
+//     setInput(e.target.value)
+//     console.log(e.target.value);
+// }
+  
+//   const getInput = (e) => {
+//     // setInput(e.target.value) === character.name;
+//     setInput(e.target.value)
+//     console.log(e.target.value);
+// }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -82,7 +88,8 @@ function SearchAppBar({character}) {
               placeholder="Search"
               inputProps={{ "aria-label": "search" }}
               value={input}
-              onChange={onChangeInput}
+              onChange={(e)=> { getInput(e.target.value)}}
+              // onChange={onChangeInput}
             />
           </Search>
         </Toolbar>

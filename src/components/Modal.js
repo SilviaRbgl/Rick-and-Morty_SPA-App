@@ -15,7 +15,7 @@ import Button from '@mui/material/Button';
 //   p: 4,
 // };
 
-function Modal({ character }) {
+function Modal({ character, handleClose }) {
 //   const [open, setOpen] = React.useState(false);
 //   const handleOpen = () => setOpen(true);
 //   const handleClose = () => setOpen(false);
