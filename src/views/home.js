@@ -1,57 +1,14 @@
-import React, { useState, useEffect } from "react";
-import Characters from "../components/Characters";
-import SearchBarApp from "../components/SearchAppBar";
-import Cards from "../components/Cards";
-
+import React from 'react'
+import Characters  from '../components/Characters'
+import Navbar from '../components/Navbar'
 
 function Home() {
-  const [input, setInput] = useState([]);
-
-  const getInput = (value) => {
-    const letters = [...input, value];
-    setInput(letters.join(""));
-    console.log("input :>> ", input);
-  };
-
-
-  const [characters, setCharacters] = useState([]);
-  const [error, setError] = useState(null);
-
-  const fetchCharacters = () => {
-    const url = "https://rickandmortyapi.com/api/character";
-    fetch(url)
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result.results);
-        setCharacters(result.results);
-      })
-      .catch((error) => {
-        setError(error.message);
-        console.log(error);
-      });
-  };
-
-  useEffect(() => {
-    fetchCharacters();
-  }, []);
-
   return (
-
-    <div className="Cards">
-      <SearchBarApp getInput={getInput}/>
+    <div>
+      <Navbar />
       <Characters />
-
-      {/* {characters ? (
-        characters.map((character, index) => {
-          return <Cards key={index} character={character} />;
-        })
-      ) : (
-        <p>Loading...</p>
-      )}
-      {error && <p>{error}</p>}       */}
-    </div>
-  );
+    </div> 
+  )
 }
 
-export default Home;
-
+export default Home
