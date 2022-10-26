@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Cards from "./Cards";
 
+
 function Characters() {
   const [characters, setCharacters] = useState([]);
   const [error, setError] = useState(null);
@@ -17,8 +18,7 @@ function Characters() {
         setError(error.message);
         console.log(error);
       });
-  };
-  
+  };  
 
   useEffect(() => {
     fetchCharacters();
@@ -33,10 +33,10 @@ function Characters() {
       ) : (
         <p>Loading...</p>
       )}
-        { error && <p>{error}</p>} 
+      {error && <p>{error}</p>}
      
     </div>
   );
 }
 
-export default Characters;
+export default Characters

@@ -22,7 +22,6 @@ function Cards({ character }) {
         <CardMedia
           className="Flip-card-front"
           // component="img"
-          // height="180"
           image={character.image}
           alt="characters rick and morty"
         />
@@ -30,10 +29,11 @@ function Cards({ character }) {
           <Typography gutterBottom variant="h5" component="div">
             {character.name}
           </Typography>
+          <Button onClick={handleOpen}>Open modal</Button>
         </CardContent>
-        <button type="button" onClick={handleOpen}>
+        {/* <button type="button" onClick={handleOpen}>
           LEARN MORE
-        </button>
+        </button> */}
         {/* <Modal setModal={setOpen } handleClose ={handleClose} /> */}
       </CardActionArea>
 

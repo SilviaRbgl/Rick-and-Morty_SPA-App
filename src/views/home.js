@@ -3,6 +3,7 @@ import Characters from "../components/Characters";
 import SearchBarApp from "../components/SearchAppBar";
 import Cards from "../components/Cards";
 
+
 function Home() {
   const [input, setInput] = useState([]);
 
@@ -11,6 +12,7 @@ function Home() {
     setInput(letters.join(""));
     console.log("input :>> ", input);
   };
+
 
   const [characters, setCharacters] = useState([]);
   const [error, setError] = useState(null);
@@ -33,32 +35,20 @@ function Home() {
     fetchCharacters();
   }, []);
 
-  const filteredCharacters = (character) => {
-    character.filter((character))
-    return character.name.includes(input)
-  }
-    // characters
-
-  // filteredCharacters = characters.filter((character) =>
-  // return character.name.includes(input))
-
-
   return (
-    
+
     <div className="Cards">
-      <SearchBarApp getInput={getInput} />
+      <SearchBarApp getInput={getInput}/>
       <Characters />
 
-      {characters ? (
+      {/* {characters ? (
         characters.map((character, index) => {
           return <Cards key={index} character={character} />;
         })
       ) : (
         <p>Loading...</p>
       )}
-      {error && <p>{error}</p>}
-
-      
+      {error && <p>{error}</p>}       */}
     </div>
   );
 }
