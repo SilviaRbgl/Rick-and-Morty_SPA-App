@@ -7,11 +7,11 @@ import { CardActionArea } from '@mui/material';
 
 function Cards({character}) {
   return (
-    <Card sx={{ maxWidth: 345 }} className="Card">
+    <Card sx={{ maxWidth: 180 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+          height="180"
           image={character.image}
           alt="characters rick and morty"
         />

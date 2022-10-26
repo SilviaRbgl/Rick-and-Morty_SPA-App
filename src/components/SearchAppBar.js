@@ -6,6 +6,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
+import { useState } from "react";
+import Characters from "../components/Characters";
+
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -49,7 +52,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function SearchAppBar() {
+
+function SearchAppBar({character}) {
+  const [input, setInput] = useState("");
+
+  const onChangeInput = (e) => {
+  console.log(e.target.value);
+    // setInput(e.target.value) === character.name;
+  setInput(e.target.value)
+}
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -69,6 +81,8 @@ function SearchAppBar() {
             <StyledInputBase
               placeholder="Search"
               inputProps={{ "aria-label": "search" }}
+              value={input}
+              onChange={onChangeInput}
             />
           </Search>
         </Toolbar>

@@ -24,10 +24,10 @@ function Characters() {
   }, []);
 
   return (
-    <div>
+    <div className="Cards">
       {characters ? (
-        characters.map((character) => {
-          return <Cards character={character} />;
+        characters.map((character, index) => {
+          return <Cards key={index} character={character} />;
         })
       ) : (
         <p>Loading...</p>
