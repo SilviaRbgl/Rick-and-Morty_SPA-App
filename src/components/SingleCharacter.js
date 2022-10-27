@@ -1,19 +1,28 @@
-import React from 'react'
+import React, {useState} from "react";
+import Modal from "../components/Modal"
+import ModalTest from "./ModalTest";
 
-function SingleCharacter({character}) {
-  return (
+function SingleCharacter({ character }) {
+
+const [modal, setModal] = useState()   
+const showModal = () => {
+    
+}
+  
+    return (
     <div className="flip-card">
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <img src={character.image} alt="rick and morty characters" />
-            </div>
-            <div class="flip-card-back">
-                <p>{character.name}</p>
-                <button type="text">LEARN MORE</button>  
-            </div>
-        </div>      
+      <div className="flip-card-inner">
+        <div className="flip-card-front">
+          <img src={character.image} alt="rick and morty characters" />
+        </div>
+        <div className="flip-card-back">
+          <p>{character.name}</p>
+            <button onClick={showModal} type="button">LEARN MORE</button>
+            <ModalTest character={character} />
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default SingleCharacter
+export default SingleCharacter;

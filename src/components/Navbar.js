@@ -1,20 +1,17 @@
 import React from 'react'
 
-function Navbar() {
+function Navbar({getInput}) {
 
-const onChangeInput = (e) => {
-    console.log(e.target.value);
-}
 
   return (
     <div className="Navbar">
         <input
-              type="text"
-              placeholder='Search...'
-              onChange={onChangeInput}
+          type="text"
+          placeholder='Search...'
+          onChange={(e)=> getInput(e.target.value)}
         />
     </div>
   )
 };
 
-export default Navbar
+export default Navbar;
