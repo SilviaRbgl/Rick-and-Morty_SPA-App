@@ -1,15 +1,9 @@
-import React, {useState} from "react";
-import Modal from "../components/Modal"
-import ModalTest from "./ModalTest";
+import React, { useState } from "react";
+import MyModal from './ MyModal';
 
 function SingleCharacter({ character }) {
 
-const [modal, setModal] = useState()   
-const showModal = () => {
-    
-}
-  
-    return (
+  return (
     <div className="flip-card">
       <div className="flip-card-inner">
         <div className="flip-card-front">
@@ -17,8 +11,7 @@ const showModal = () => {
         </div>
         <div className="flip-card-back">
           <p>{character.name}</p>
-            <button onClick={showModal} type="button">LEARN MORE</button>
-            <ModalTest character={character} />
+          <MyModal character={character} />
         </div>
       </div>
     </div>

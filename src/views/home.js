@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Characters  from '../components/Characters'
 import Navbar from '../components/Navbar'
+import Pagination from '../components/Pagination'
 
 function Home() {
 
@@ -12,10 +13,12 @@ const getInput = (input) => {
   console.log(search);
 }
 
+
   return (
     <div>
       <Navbar getInput ={getInput} />
       <Characters search={search} />
+      <Pagination />
     </div> 
   )
 }

@@ -2,7 +2,6 @@ import React from 'react'
 
 function Navbar({getInput}) {
 
-
   return (
     <div className="Navbar">
         <input
