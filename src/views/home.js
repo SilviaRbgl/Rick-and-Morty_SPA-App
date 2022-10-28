@@ -7,12 +7,11 @@ function Home() {
 
   const [search, setSearch] = useState("")
  
-const getInput = (input) => {
+  const getInput = (input) => {
   console.log(input)
   setSearch(input)
   console.log(search);
-}
-
+  }
 
   return (
     <div>

@@ -1,33 +1,20 @@
-import React, {useState, useEffect} from "react";
-import Pagination from 'react-bootstrap/Pagination';
+import React, { useState, useEffect } from "react";
+import Pagination from "react-bootstrap/Pagination";
 
-function AdvancedExample() {
+function AdvancedExample({ pages }) {
 
-// const [pages, setPages] = useState([]);
+    // const prevPage = () => { pages.prev };
+    // const nextPage = () => { pages.next };
 
-//     const fetchPages = () => {
-//     const url = "https://rickandmortyapi.com/api/character/";
-
-//     fetch(url)
-//       .then((response) => response.json())
-//       .then((result) => {
-//         console.log(result.results);
-//         setPages(result.results);
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//       });
-//   };
-
-//   useEffect(() => {
-//     fetchPages();
-//   }, []);
-    
-    return (
+  return (
+    <div className="Pagination">
     <Pagination>
-      <Pagination.Prev />
-      <Pagination.Next active/>
-    </Pagination>
+        {/* <Pagination.Prev onClick={prevPage}/>
+        <Pagination.Next onClick={nextPage}/> */}
+        <Pagination.Prev />
+        <Pagination.Next />
+      </Pagination>
+    </div>
   );
 }
 

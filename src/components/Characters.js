@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import SingleCharacter from "../components/SingleCharacter"
-import Navbar from "../components/Navbar"
 
 function Characters({search}) {
   
   // console.log('search :>> ', search);
   const [characters, setCharacters] = useState([]);
+  const [pages, setPages] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -24,38 +24,17 @@ function Characters({search}) {
       const result = await response.json();
       setCharacters(result.results);
       setLoading(false);
+      setPages(result.info);
       
     } catch (error) {
       setError(error.message);
-      console.log(error);
-      
+      console.log(error);      
     }
-
   }
 
-  // const fetchCharacters = () => {
-  //   const url = "https://rickandmortyapi.com/api/character";
-
-  //   fetch(url)
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       console.log(result.results);
-  //       setCharacters(result.results);
-  //       setLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       setError(error.message);
-  //       console.log(error);
-  //     });
-  // };
-
-
-
   useEffect(() => {
-    // fetchCharacters();
     fetchCharactersAsync();
   }, []);
-
 
   return (
     <div>
